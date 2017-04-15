@@ -26,7 +26,7 @@ class ResellerClubAPI {
 	foreach($this->tlds_list as $arrayitem)	{ $tld.= '&tlds=' . $arrayitem;	}
 	$url = 'https://test.httpapi.com/api/domains/available.json?auth-userid=' . $this->api_user_id . '&api-key=' . $this->api_key . '&domain-name=' . $this->domainname . $tld . '&suggest-alternative=true';
 	
-	if ($data) $url = sprintf("%s?%s", $url, http_build_query($data));
+	//if ($data) $url = sprintf("%s?%s", $url, http_build_query($data));
 	
 	$curl = curl_init();
 	curl_setopt($curl, CURLOPT_URL, $url);

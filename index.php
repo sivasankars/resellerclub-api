@@ -71,20 +71,24 @@
           <table class="table">
             <tbody>
                 <?php
-                foreach($data[$api->domainname] as $suggestion => $tlds_list)
-                {
-                    foreach($data[$api->domainname][$suggestion] as $tld => $status)
-                    {
-                        if ($status == "available")
-                        {
-                            echo '<tr>
-                            <td class="domainname">'.strtolower($suggestion) . '.' . $tld.'</td>
-                            <td>Available</td>
-                            </tr>';
-							$flag = 1;
-                        }
-                    }
-                }
+				if($data[$api->domainname]){
+					foreach($data[$api->domainname] as $suggestion => $tlds_list)
+					{
+						foreach($data[$api->domainname][$suggestion] as $tld => $status)
+						{
+							if ($status == "available")
+							{
+								echo '<tr>
+								<td class="domainname">'.strtolower($suggestion) . '.' . $tld.'</td>
+								<td>Available</td>
+								</tr>';
+								$flag = 1;
+							}
+						}
+					}
+				} else{
+					$flag = 1;
+				}
 				if(!isset($flag))
 				{
 					echo '<tr><td>No Suggestion Avaliable</td></tr>';
